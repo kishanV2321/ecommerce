@@ -57,8 +57,9 @@ const productSlice = createSlice({
         },
 
         addDiscountFilter: (state, action: PayloadAction<number[]>) => {
-            state.filters.discounts = action.payload;
+            state.filters.discounts = [...new Set([...state.filters.discounts, ...action.payload])];
         },
+
         removeDiscountFilter: (state, action: PayloadAction<number>) => {
             state.filters.discounts = state.filters.discounts.filter(discount => discount !== action.payload);
         },

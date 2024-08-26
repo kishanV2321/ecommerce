@@ -52,7 +52,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productData }) => {
         returnPolicy,
         minimumOrderQuantity,
         availabilityStatus,
-        images, // Added images property
     } = productData;
 
     const [originalPrice, discount] = getCalculatedAmount(price, discountPercentage);

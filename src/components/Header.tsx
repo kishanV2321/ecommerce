@@ -1,38 +1,38 @@
 import { Link } from "react-router-dom";
 import CategorySideBar from "./CategorySideBar";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import SubHeader from "./SubHeader";
 import SearchBar from "./SearchBar";
 // import { signOut } from "firebase/auth";
 // import { auth } from "../utils/firebase";
 import { IoCart } from "react-icons/io5";
 // import { clearCart } from "../store/cartSlice";
-import { useState } from "react";
+// import { useState } from "react";
 import { IoMdArrowDropup } from "react-icons/io";
-import { RootState, AppDispatch } from "../store/appStore"; // Import the necessary types
+import { RootState } from "../store/appStore"; // Import the necessary types
 
 const Header = () => {
     // const dispatch: AppDispatch = useDispatch();
-    const [userPopUp, setUserPopUp] = useState<boolean>(false);
+    // const [userPopUp, setUserPopUp] = useState<boolean>(false);
 
     // Use optional chaining to access user properties safely
-    const user = useSelector((store: RootState) => store.user);
+    // const user = useSelector((store: RootState) => store.user);
     const isSideBar = useSelector((store: RootState) => store.app.isSideBar);
     const cartItems = useSelector((store: RootState) => store.cart.cartItems);
     const loginPopUp = useSelector((store: RootState) => store.app.loginPopUp);
 
-    const handleSignOut = () => {
-        // signOut(auth)
-        //     .then(() => {
-        //         // success
-        //     })
-        //     .catch((err) => {
-        //         // handle error
-        //         console.error("Sign out error", err);
-        //     });
+    // const handleSignOut = () => {
+    //     signOut(auth)
+    //         .then(() => {
+    //             // success
+    //         })
+    //         .catch((err) => {
+    //             // handle error
+    //             console.error("Sign out error", err);
+    //         });
 
-        // dispatch(clearCart());
-    };
+    //     dispatch(clearCart());
+    // };
 
     return (
         <div className="bg-sky-950">
@@ -56,33 +56,35 @@ const Header = () => {
                         </div>
                     </Link>
 
-                    {user ? (
+                    {/* {user ? (
                         <div
                             className="w-9 cursor-pointer mr-1.5 sm:mr-0"
                             onClick={() => setUserPopUp(!userPopUp)}
                         >
-                            {/* <img src={user.photoURL} alt="" className="w-full rounded-full" /> */}
+                            <img src={user.photoURL} alt="" className="w-full rounded-full" />
                         </div>
                     ) : (
-                        <Link to={"/login"}>
-                            <div className="mr-2 relative">
-                                <button className="text-white font-semibold border px-2 py-1 sm:px-3 sm:py-1.5 rounded-md">
-                                    Login
-                                </button>
-                                {loginPopUp && !user && (
-                                    <div className="absolute top-full bg-emerald-600 mt-3 px-5 py-2 -left-2 animate-bounce">
-                                        <IoMdArrowDropup className="absolute -top-5 text-4xl text-emerald-600" />
-                                        <span className="text-white font-semibold">Login!</span>
-                                    </div>
-                                )}
-                            </div>
-                        </Link>
-                    )}
+                        
+                    )} */}
 
-                    {userPopUp && user && (
+                    <Link to={"/login"}>
+                        <div className="mr-2 relative">
+                            <button className="text-white font-semibold border px-2 py-1 sm:px-3 sm:py-1.5 rounded-md">
+                                Login
+                            </button>
+                            {loginPopUp && (
+                                <div className="absolute top-full bg-emerald-600 mt-3 px-5 py-2 -left-2 animate-bounce">
+                                    <IoMdArrowDropup className="absolute -top-5 text-4xl text-emerald-600" />
+                                    <span className="text-white font-semibold">Login!</span>
+                                </div>
+                            )}
+                        </div>
+                    </Link>
+
+                    {/* {userPopUp && user && (
                         <div className="w-[70vw] md:w-max bg-sky-700 text-gray-200 font-semibold rounded absolute top-full right-0 mt-2 px-3 py-2 z-20">
-                            {/* <p>{user.displayName}</p> */}
-                            {/* <p className="my-1">{user.email}</p> */}
+                            <p>{user.displayName}</p>
+                            <p className="my-1">{user.email}</p>
                             <button
                                 className="bg-gray-200 w-full rounded py-1.5 mt-1 text-sky-700"
                                 onClick={handleSignOut}
@@ -90,7 +92,7 @@ const Header = () => {
                                 Sign Out
                             </button>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
 

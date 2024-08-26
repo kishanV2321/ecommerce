@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { LiaStarSolid } from "react-icons/lia";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     addRatingsFilter,
     removeRatingsFilter,
 } from "../store/productSlice";
+import { RootState } from "../store/appStore";
 
 const RatingSection: React.FC = () => {
     const dispatch = useDispatch();
+    const selectedRatings = useSelector((state: RootState) => state.product.filters.ratings); // Select ratings from Redux store
     const [showRating, setShowRating] = useState<boolean>(false);
 
     const handleCheckbox = (value: string, isChecked: boolean) => {
+        const ratingValue = parseInt(value);
         if (isChecked) {
-            dispatch(addRatingsFilter(parseInt(value)));
+            // Wrap the single rating value in an array
+            dispatch(addRatingsFilter([...selectedRatings, ratingValue]));
         } else {
-            dispatch(removeRatingsFilter(parseInt(value)));
+            dispatch(removeRatingsFilter(ratingValue));
         }
     };
 

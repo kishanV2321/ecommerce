@@ -10,7 +10,8 @@ const DiscountSection: React.FC = () => {
     const handleCheckbox = (value: string, isChecked: boolean) => {
         const discountValue = parseInt(value);
         if (isChecked) {
-            dispatch(addDiscountFilter(discountValue));
+            // Wrap the discount value in an array for addDiscountFilter
+            dispatch(addDiscountFilter([discountValue]));
         } else {
             dispatch(removeDiscountFilter(discountValue));
         }
