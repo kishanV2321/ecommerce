@@ -11,12 +11,7 @@ import { categoryList } from "../utils/categoryList";
 import { useNavigate } from "react-router-dom";
 
 // Define types for the component state and Redux store state
-interface SearchBarState {
-    searchQuery: string;
-    searchSuggestions: string[];
-    showSuggestion: boolean;
-    progressValue: number;
-}
+
 
 interface AppState {
     app: {

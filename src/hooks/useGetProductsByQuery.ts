@@ -12,9 +12,7 @@ interface Product {
 }
 
 // Define a type for the category products object
-interface CategoryProducts {
-    [query: string]: Product[];
-}
+
 
 // Define the hook
 export const useGetProductsByQuery = (query: string) => {

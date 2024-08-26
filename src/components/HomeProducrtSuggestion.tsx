@@ -22,7 +22,7 @@ const HomeProductSuggestions: React.FC<HomeProductSuggestionsProps> = ({ product
                 <div className="grid lg:grid-cols-2">
                     <div className="grid grid-cols-2 grid-rows-2">
                         {/* This will slice first 4 elements and then map() on it */}
-                        {products.slice(0, 4).map((product, i) => (
+                        {products.slice(0, 4).map((product) => (
                             <HomeSuggestionCard key={product.id} productData={product} />
                         ))}
                     </div>
