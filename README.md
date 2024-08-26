@@ -34,11 +34,13 @@ To get started with the project, follow these steps:
    ```bash
    git clone https://github.com/your-username/ecommerce.git
    cd ecommerce
+   ```
 
 2. **Install Dependencies:**
 
   ```bash
   npm install
+  ```
 
 3. **Set Up Environment Variables:**
 
@@ -46,6 +48,7 @@ Create a .env file in the root of the project and add your environment variables
 
   ```bash
   REACT_APP_GEMINI_API_KEY=your-api-key-here
+  ```
 
 
 ## Development
@@ -54,6 +57,7 @@ To start the development server:
  
   ```bash
   npm run dev
+  ```
 
 This will launch the application in development mode, and you can view it in your browser at http://localhost:3000.
 
@@ -63,11 +67,13 @@ To build the project for production:
 
   ```bash
   npm run build
+  ```
 
 To preview the production build:
 
   ```bash
   npm run preview
+  ```
 
 ## Linting
 
@@ -75,6 +81,7 @@ To lint the project using ESLint:
 
   ```bash
   npm run lint
+  ```
 
 ### Folder Structure
 
